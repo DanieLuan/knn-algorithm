@@ -1,7 +1,4 @@
-from collections import Counter
 import numpy as np
-
-from sklearn.metrics.pairwise import euclidean_distances
 
 class knn:
     """Implementação de algoritmo de classificação k-NN. 
@@ -14,12 +11,6 @@ class knn:
         self.data = data
         self.targets = targets
     
-    def distance(self, x1, x2):
-        if self.distance_metric == 'euclidean':
-            distance = np.sqrt(np.sum((x1 - x2)**2))
-            return distance
-        else:
-            raise ValueError('Metric not implemented')
     
     def predict(self, data_sample):
         predctions = []
@@ -38,6 +29,13 @@ class knn:
             predctions.append(most_common) 
             
         return predctions
+    
+    def distance(self, x1, x2):
+        if self.distance_metric == 'euclidean':
+            distance = np.sqrt(np.sum((x1 - x2)**2))
+            return distance
+        else:
+            raise ValueError('Metric not implemented')
     
     def most_common(self, k_nearest_labels):
         labels, label_counts = np.unique(k_nearest_labels, return_counts=True)

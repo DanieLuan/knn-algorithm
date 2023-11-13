@@ -1,8 +1,3 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-
-
 from sklearn.datasets import load_iris
 from sklearn import metrics
 from sklearn.metrics import classification_report
@@ -17,7 +12,7 @@ y = iris.target
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.6, random_state=0)
 
-myKnn = myKnn.knn(k=5, distance_metric='geometrica')
+myKnn = myKnn.knn(k=5, distance_metric='euclidean')
 myKnn.fit(X_train, y_train)
 y_pred = myKnn.predict(X_test)
 
