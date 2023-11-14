@@ -34,6 +34,9 @@ class knn:
         if self.distance_metric == 'euclidean':
             distance = np.sqrt(np.sum((x1 - x2)**2))
             return distance
+        elif self.distance_metric == 'manhattan':
+            distance = np.sum(np.abs(x1 - x2))
+            return distance
         else:
             raise ValueError('Metric not implemented')
     
